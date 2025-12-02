@@ -18,6 +18,7 @@ export * from "./SanPhamDB/GioHangColumns";
 export * from "./SanPhamDB/GioHangForm";
 export * from "./SanPhamDB/GioHangRow";
 export * from "./SanPhamDB/GioHangService";
+export * from "./SanPhamDB/GioiTinhEnum";
 export * from "./SanPhamDB/KhachHangColumns";
 export * from "./SanPhamDB/KhachHangForm";
 export * from "./SanPhamDB/KhachHangRow";

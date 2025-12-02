@@ -1,4 +1,4 @@
-﻿namespace wheystore.SanPhamDB.Columns;
+namespace wheystore.SanPhamDB.Columns;
 
 [ColumnsScript("SanPhamDB.XaPhuong")]
 [BasedOnRow(typeof(XaPhuongRow), CheckNames = true)]
@@ -8,5 +8,7 @@ public class XaPhuongColumns
     public int Id { get; set; }
     [EditLink]
     public string TenXaPhuong { get; set; }
-    public string QuanHuyenTenQuanHuyen { get; set; }
+
+    [DisplayName("Quận Huyện")]
+    public string QuanHuyenTen { get; set; }
 }

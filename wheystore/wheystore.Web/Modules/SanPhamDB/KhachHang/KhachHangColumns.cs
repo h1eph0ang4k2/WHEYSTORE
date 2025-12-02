@@ -13,16 +13,26 @@ public class KhachHangColumns
     public string Email { get; set; }
     public string DiaChi { get; set; }
 
-   
+    [LookupEditor(typeof(TinhThanhRow)), QuickFilter, DisplayName("Tỉnh Thành")]
+    public int? TinhThanhId { get; set; }
+
+    
+
+    [DisplayName("Tỉnh Thành")]
+    public string TinhThanhTen { get; set; }
 
     [DisplayName("Quận/Huyện")]
     public string QuanHuyenTen { get; set; }
 
     [DisplayName("Xã/Phường")]
     public string XaPhuongTen { get; set; }
-    [DisplayName("Tỉnh Thành")]
-    public string TinhThanh { get; set; }
+
     public string MaBuuChinh { get; set; }
-    public DateOnly NgaySinh { get; set; }
-    public short GioiTinh { get; set; }
+    public DateTime NgaySinh { get; set; }
+
+
+    [DisplayName("Giới Tính")]
+    public short? GioiTinh { get; set; }
+
+    
 }

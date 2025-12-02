@@ -9,6 +9,7 @@ public class KhachHangForm
     public string DienThoai { get; set; }
     public string Email { get; set; }
     public string DiaChi { get; set; }
+
     [LookupEditor(typeof(TinhThanhRow))]
     public int? TinhThanhId { get; set; }
 
@@ -28,6 +29,8 @@ public class KhachHangForm
     )]
     public int? XaPhuongId { get; set; }
     public string MaBuuChinh { get; set; }
-    public DateOnly NgaySinh { get; set; }
-    public short GioiTinh { get; set; }
+    public DateTime NgaySinh { get; set; }
+
+    [DisplayName("Giới Tính"), EnumEditor]
+    public GioiTinhEnum? GioiTinh { get; set; }
 }

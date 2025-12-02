@@ -1,4 +1,5 @@
-﻿import { initFormType, IntegerEditor, LookupEditor, PrefixedContext, StringEditor } from "@serenity-is/corelib";
+﻿import { DateEditor, EnumEditor, initFormType, IntegerEditor, LookupEditor, PrefixedContext, StringEditor } from "@serenity-is/corelib";
+import { GioiTinhEnum } from "./GioiTinhEnum";
 
 export interface KhachHangForm {
     UserId: IntegerEditor;
@@ -10,8 +11,8 @@ export interface KhachHangForm {
     QuanHuyenId: LookupEditor;
     XaPhuongId: LookupEditor;
     MaBuuChinh: StringEditor;
-    NgaySinh: StringEditor;
-    GioiTinh: IntegerEditor;
+    NgaySinh: DateEditor;
+    GioiTinh: EnumEditor;
 }
 
 export class KhachHangForm extends PrefixedContext {
@@ -27,6 +28,8 @@ export class KhachHangForm extends PrefixedContext {
             var w0 = IntegerEditor;
             var w1 = StringEditor;
             var w2 = LookupEditor;
+            var w3 = DateEditor;
+            var w4 = EnumEditor;
 
             initFormType(KhachHangForm, [
                 'UserId', w0,
@@ -38,9 +41,11 @@ export class KhachHangForm extends PrefixedContext {
                 'QuanHuyenId', w2,
                 'XaPhuongId', w2,
                 'MaBuuChinh', w1,
-                'NgaySinh', w1,
-                'GioiTinh', w0
+                'NgaySinh', w3,
+                'GioiTinh', w4
             ]);
         }
     }
 }
+
+[GioiTinhEnum]; // referenced types

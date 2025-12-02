@@ -5,7 +5,7 @@ import { QuanHuyenRow } from "./QuanHuyenRow";
 export interface QuanHuyenColumns {
     Id: Column<QuanHuyenRow>;
     TenQuanHuyen: Column<QuanHuyenRow>;
-    TinhThanhTenTinhThanh: Column<QuanHuyenRow>;
+    TinhThanhTen: Column<QuanHuyenRow>;
 }
 
 export class QuanHuyenColumns extends ColumnsBase<QuanHuyenRow> {

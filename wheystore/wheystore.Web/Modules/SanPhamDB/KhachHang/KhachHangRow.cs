@@ -34,7 +34,7 @@ public sealed class KhachHangRow : Row<KhachHangRow.RowFields>, IIdRow, INameRow
      Column("TinhThanhID"),
      ForeignKey(typeof(TinhThanhRow)), LeftJoin("jTinhThanh"),
      TextualField(nameof(TinhThanhTen))]
-    [LookupEditor(typeof(TinhThanhRow))]
+    [LookupEditor(typeof(TinhThanhRow)),QuickFilter]
     public int? TinhThanhId
     {
         get => fields.TinhThanhId[this];
@@ -53,7 +53,7 @@ public sealed class KhachHangRow : Row<KhachHangRow.RowFields>, IIdRow, INameRow
      Column("QuanHuyenID"),
      ForeignKey(typeof(QuanHuyenRow)), LeftJoin("jQuanHuyen"),
      TextualField(nameof(QuanHuyenTen))]
-    [LookupEditor(typeof(QuanHuyenRow))]
+    [LookupEditor(typeof(QuanHuyenRow)), QuickFilter]
     public int? QuanHuyenId
     {
         get => fields.QuanHuyenId[this];
@@ -71,7 +71,7 @@ public sealed class KhachHangRow : Row<KhachHangRow.RowFields>, IIdRow, INameRow
      Column("XaPhuongID"),
      ForeignKey(typeof(XaPhuongRow)), LeftJoin("jXaPhuong"),
      TextualField(nameof(XaPhuongTen))]
-    [LookupEditor(typeof(XaPhuongRow))]
+    [LookupEditor(typeof(XaPhuongRow)), QuickFilter]
     public int? XaPhuongId
     {
         get => fields.XaPhuongId[this];
@@ -91,11 +91,13 @@ public sealed class KhachHangRow : Row<KhachHangRow.RowFields>, IIdRow, INameRow
     public string MaBuuChinh { get => fields.MaBuuChinh[this]; set => fields.MaBuuChinh[this] = value; }
 
     [DisplayName("Ngay Sinh")]
-    public DateOnly? NgaySinh { get => fields.NgaySinh[this]; set => fields.NgaySinh[this] = value; }
+    public DateTime? NgaySinh { get => fields.NgaySinh[this]; set => fields.NgaySinh[this] = value; }
+
 
     [DisplayName("Gioi Tinh")]
     public short? GioiTinh { get => fields.GioiTinh[this]; set => fields.GioiTinh[this] = value; }
 
+    
 
     public class RowFields : RowFieldsBase
     {
@@ -106,7 +108,7 @@ public sealed class KhachHangRow : Row<KhachHangRow.RowFields>, IIdRow, INameRow
         public StringField Email;
         public StringField DiaChi;
         public StringField MaBuuChinh;
-        public DateOnlyField NgaySinh;
+        public DateTimeField NgaySinh;
         public Int16Field GioiTinh;
         public Int32Field TinhThanhId;
         public StringField TinhThanhTen;
