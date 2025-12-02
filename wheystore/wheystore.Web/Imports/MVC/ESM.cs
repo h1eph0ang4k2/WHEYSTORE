@@ -12,6 +12,7 @@ public static partial class ESM
     public const string LoginPage = "~/esm/Modules/Membership/Account/Login/LoginPage.js";
     public const string MaGiamGiaPage = "~/esm/Modules/SanPhamDB/MaGiamGia/MaGiamGiaPage.js";
     public const string NhaCungCapPage = "~/esm/Modules/SanPhamDB/NhaCungCap/NhaCungCapPage.js";
+    public const string QuanHuyenPage = "~/esm/Modules/SanPhamDB/QuanHuyen/QuanHuyenPage.js";
     public const string QuaTangPage = "~/esm/Modules/SanPhamDB/QuaTang/QuaTangPage.js";
     public const string ReviewPage = "~/esm/Modules/SanPhamDB/Review/ReviewPage.js";
     public const string RolePage = "~/esm/Modules/Administration/Role/RolePage.js";
@@ -27,9 +28,11 @@ public static partial class ESM
     public const string ShippersPage = "~/esm/Modules/SanPhamDB/Shippers/ShippersPage.js";
     public const string SignUpPage = "~/esm/Modules/Membership/Account/SignUp/SignUpPage.js";
     public const string ThuongHieuPage = "~/esm/Modules/SanPhamDB/ThuongHieu/ThuongHieuPage.js";
+    public const string TinhThanhPage = "~/esm/Modules/SanPhamDB/TinhThanh/TinhThanhPage.js";
     public const string TinTucPage = "~/esm/Modules/SanPhamDB/TinTuc/TinTucPage.js";
     public const string TranslationPage = "~/esm/Modules/Administration/Translation/TranslationPage.js";
     public const string UserPage = "~/esm/Modules/Administration/User/UserPage.js";
+    public const string XaPhuongPage = "~/esm/Modules/SanPhamDB/XaPhuong/XaPhuongPage.js";
 
     public static partial class Modules
     {
@@ -119,6 +122,11 @@ public static partial class ESM
                 public const string NhaCungCapPage = "~/esm/Modules/SanPhamDB/NhaCungCap/NhaCungCapPage.js";
             }
 
+            public static partial class QuanHuyen
+            {
+                public const string QuanHuyenPage = "~/esm/Modules/SanPhamDB/QuanHuyen/QuanHuyenPage.js";
+            }
+
             public static partial class QuaTang
             {
                 public const string QuaTangPage = "~/esm/Modules/SanPhamDB/QuaTang/QuaTangPage.js";
@@ -179,9 +187,19 @@ public static partial class ESM
                 public const string ThuongHieuPage = "~/esm/Modules/SanPhamDB/ThuongHieu/ThuongHieuPage.js";
             }
 
+            public static partial class TinhThanh
+            {
+                public const string TinhThanhPage = "~/esm/Modules/SanPhamDB/TinhThanh/TinhThanhPage.js";
+            }
+
             public static partial class TinTuc
             {
                 public const string TinTucPage = "~/esm/Modules/SanPhamDB/TinTuc/TinTucPage.js";
+            }
+
+            public static partial class XaPhuong
+            {
+                public const string XaPhuongPage = "~/esm/Modules/SanPhamDB/XaPhuong/XaPhuongPage.js";
             }
         }
     }

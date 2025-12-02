@@ -1,4 +1,4 @@
-﻿namespace wheystore.SanPhamDB.Columns;
+namespace wheystore.SanPhamDB.Columns;
 
 [ColumnsScript("SanPhamDB.KhachHang")]
 [BasedOnRow(typeof(KhachHangRow), CheckNames = true)]
@@ -12,8 +12,15 @@ public class KhachHangColumns
     public string DienThoai { get; set; }
     public string Email { get; set; }
     public string DiaChi { get; set; }
-    public string PhuongXa { get; set; }
-    public string QuanHuyen { get; set; }
+
+   
+
+    [DisplayName("Quận/Huyện")]
+    public string QuanHuyenTen { get; set; }
+
+    [DisplayName("Xã/Phường")]
+    public string XaPhuongTen { get; set; }
+    [DisplayName("Tỉnh Thành")]
     public string TinhThanh { get; set; }
     public string MaBuuChinh { get; set; }
     public DateOnly NgaySinh { get; set; }

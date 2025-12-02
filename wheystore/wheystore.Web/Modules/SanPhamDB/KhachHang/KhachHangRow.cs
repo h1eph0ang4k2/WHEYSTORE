@@ -1,10 +1,12 @@
-﻿namespace wheystore.SanPhamDB;
+namespace wheystore.SanPhamDB;
 
 [ConnectionKey("Default"), Module("SanPhamDB"), TableName("KhachHang")]
 [DisplayName("Khach Hang"), InstanceName("Khach Hang")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
+[LookupScript]
+
 public sealed class KhachHangRow : Row<KhachHangRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]
@@ -25,14 +27,65 @@ public sealed class KhachHangRow : Row<KhachHangRow.RowFields>, IIdRow, INameRow
     [DisplayName("Dia Chi"), Size(255)]
     public string DiaChi { get => fields.DiaChi[this]; set => fields.DiaChi[this] = value; }
 
-    [DisplayName("Phuong Xa"), Size(100)]
-    public string PhuongXa { get => fields.PhuongXa[this]; set => fields.PhuongXa[this] = value; }
+    
 
-    [DisplayName("Quan Huyen"), Size(100)]
-    public string QuanHuyen { get => fields.QuanHuyen[this]; set => fields.QuanHuyen[this] = value; }
+  
+    [DisplayName("Tỉnh/Thành"),
+     Column("TinhThanhID"),
+     ForeignKey(typeof(TinhThanhRow)), LeftJoin("jTinhThanh"),
+     TextualField(nameof(TinhThanhTen))]
+    [LookupEditor(typeof(TinhThanhRow))]
+    public int? TinhThanhId
+    {
+        get => fields.TinhThanhId[this];
+        set => fields.TinhThanhId[this] = value;
+    }
 
-    [DisplayName("Tinh Thanh"), Size(100)]
-    public string TinhThanh { get => fields.TinhThanh[this]; set => fields.TinhThanh[this] = value; }
+    [DisplayName("Tỉnh/Thành"), Expression("jTinhThanh.TenTinhThanh")]
+    public string TinhThanhTen
+    {
+        get => fields.TinhThanhTen[this];
+        set => fields.TinhThanhTen[this] = value;
+    }
+
+    
+    [DisplayName("Quận/Huyện"),
+     Column("QuanHuyenID"),
+     ForeignKey(typeof(QuanHuyenRow)), LeftJoin("jQuanHuyen"),
+     TextualField(nameof(QuanHuyenTen))]
+    [LookupEditor(typeof(QuanHuyenRow))]
+    public int? QuanHuyenId
+    {
+        get => fields.QuanHuyenId[this];
+        set => fields.QuanHuyenId[this] = value;
+    }
+
+    [DisplayName("Quận/Huyện"), Expression("jQuanHuyen.TenQuanHuyen")]
+    public string QuanHuyenTen
+    {
+        get => fields.QuanHuyenTen[this];
+        set => fields.QuanHuyenTen[this] = value;
+    }
+
+    [DisplayName("Xã/Phường"),
+     Column("XaPhuongID"),
+     ForeignKey(typeof(XaPhuongRow)), LeftJoin("jXaPhuong"),
+     TextualField(nameof(XaPhuongTen))]
+    [LookupEditor(typeof(XaPhuongRow))]
+    public int? XaPhuongId
+    {
+        get => fields.XaPhuongId[this];
+        set => fields.XaPhuongId[this] = value;
+    }
+
+    [DisplayName("Xã/Phường"), Expression("jXaPhuong.TenXaPhuong")]
+    public string XaPhuongTen
+    {
+        get => fields.XaPhuongTen[this];
+        set => fields.XaPhuongTen[this] = value;
+    }
+
+
 
     [DisplayName("Ma Buu Chinh"), Size(20)]
     public string MaBuuChinh { get => fields.MaBuuChinh[this]; set => fields.MaBuuChinh[this] = value; }
@@ -43,6 +96,7 @@ public sealed class KhachHangRow : Row<KhachHangRow.RowFields>, IIdRow, INameRow
     [DisplayName("Gioi Tinh")]
     public short? GioiTinh { get => fields.GioiTinh[this]; set => fields.GioiTinh[this] = value; }
 
+
     public class RowFields : RowFieldsBase
     {
         public Int32Field Id;
@@ -51,12 +105,15 @@ public sealed class KhachHangRow : Row<KhachHangRow.RowFields>, IIdRow, INameRow
         public StringField DienThoai;
         public StringField Email;
         public StringField DiaChi;
-        public StringField PhuongXa;
-        public StringField QuanHuyen;
-        public StringField TinhThanh;
         public StringField MaBuuChinh;
         public DateOnlyField NgaySinh;
         public Int16Field GioiTinh;
+        public Int32Field TinhThanhId;
+        public StringField TinhThanhTen;
+        public Int32Field QuanHuyenId;
+        public StringField QuanHuyenTen;
+        public Int32Field XaPhuongId;
+        public StringField XaPhuongTen;
 
     }
 }

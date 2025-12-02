@@ -1,4 +1,4 @@
-﻿import { initFormType, IntegerEditor, PrefixedContext, StringEditor } from "@serenity-is/corelib";
+﻿import { initFormType, IntegerEditor, LookupEditor, PrefixedContext, StringEditor } from "@serenity-is/corelib";
 
 export interface KhachHangForm {
     UserId: IntegerEditor;
@@ -6,9 +6,9 @@ export interface KhachHangForm {
     DienThoai: StringEditor;
     Email: StringEditor;
     DiaChi: StringEditor;
-    PhuongXa: StringEditor;
-    QuanHuyen: StringEditor;
-    TinhThanh: StringEditor;
+    TinhThanhId: LookupEditor;
+    QuanHuyenId: LookupEditor;
+    XaPhuongId: LookupEditor;
     MaBuuChinh: StringEditor;
     NgaySinh: StringEditor;
     GioiTinh: IntegerEditor;
@@ -26,6 +26,7 @@ export class KhachHangForm extends PrefixedContext {
 
             var w0 = IntegerEditor;
             var w1 = StringEditor;
+            var w2 = LookupEditor;
 
             initFormType(KhachHangForm, [
                 'UserId', w0,
@@ -33,9 +34,9 @@ export class KhachHangForm extends PrefixedContext {
                 'DienThoai', w1,
                 'Email', w1,
                 'DiaChi', w1,
-                'PhuongXa', w1,
-                'QuanHuyen', w1,
-                'TinhThanh', w1,
+                'TinhThanhId', w2,
+                'QuanHuyenId', w2,
+                'XaPhuongId', w2,
                 'MaBuuChinh', w1,
                 'NgaySinh', w1,
                 'GioiTinh', w0

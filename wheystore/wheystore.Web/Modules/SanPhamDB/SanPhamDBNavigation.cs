@@ -1,5 +1,7 @@
-﻿using Serenity.Navigation;
+
+using Serenity.Navigation;
 using MyPages = wheystore.SanPhamDB.Pages;
+
 
 [assembly: NavigationLink(1000, "SanPhamDB/San Pham", typeof(MyPages.SanPhamPage), icon: null)]
 [assembly: NavigationLink(1001, "SanPhamDB/Danh Muc San Pham", typeof(MyPages.DanhMucSanPhamPage), icon: null)]
@@ -20,5 +22,6 @@ using MyPages = wheystore.SanPhamDB.Pages;
 [assembly: NavigationLink(1015, "SanPhamDB/San Pham Noi Dung", typeof(MyPages.SanPhamNoiDungPage), icon: null)]
 [assembly: NavigationLink(1016, "SanPhamDB/San Pham Qua Tang", typeof(MyPages.SanPhamQuaTangPage), icon: null)]
 [assembly: NavigationLink(1019, "SanPhamDB/Ma Giam Gia", typeof(MyPages.MaGiamGiaPage), icon: null)]
-[assembly: NavigationLink(1017, "SanPhamDB/San Pham Lien Quan", typeof(MyPages.SanPhamLienQuanPage), icon: null)]
-[assembly: NavigationLink(int.MaxValue, "SanPhamDB/San Pham Huong Vi Link", typeof(MyPages.SanPhamHuongViLinkPage), icon: null)]
+[assembly: NavigationLink(1019, "SanPhamDB/Quan Huyen", typeof(MyPages.QuanHuyenPage), icon: null)]
+[assembly: NavigationLink(1020, "SanPhamDB/Tinh Thanh", typeof(MyPages.TinhThanhPage), icon: null)]
+[assembly: NavigationLink(1021, "SanPhamDB/Xa Phuong", typeof(MyPages.XaPhuongPage), icon: null)]

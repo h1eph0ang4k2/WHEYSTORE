@@ -178,10 +178,13 @@ namespace texts {
                 export const Id: string;
                 export const MaBuuChinh: string;
                 export const NgaySinh: string;
-                export const PhuongXa: string;
-                export const QuanHuyen: string;
-                export const TinhThanh: string;
+                export const QuanHuyenId: string;
+                export const QuanHuyenTen: string;
+                export const TinhThanhId: string;
+                export const TinhThanhTen: string;
                 export const UserId: string;
+                export const XaPhuongId: string;
+                export const XaPhuongTen: string;
             }
             namespace MaGiamGia {
                 export function asKey(): typeof MaGiamGia;
@@ -228,6 +231,16 @@ namespace texts {
                 export const Id: string;
                 export const MoTa: string;
                 export const TenQua: string;
+            }
+            namespace QuanHuyen {
+                export function asKey(): typeof QuanHuyen;
+                export function asTry(): typeof QuanHuyen;
+                export const EntityPlural: string;
+                export const EntitySingular: string;
+                export const Id: string;
+                export const TenQuanHuyen: string;
+                export const TinhThanhId: string;
+                export const TinhThanhTenTinhThanh: string;
             }
             namespace Review {
                 export function asKey(): typeof Review;
@@ -410,6 +423,24 @@ namespace texts {
                 export const TomTat: string;
                 export const ViewCount: string;
             }
+            namespace TinhThanh {
+                export function asKey(): typeof TinhThanh;
+                export function asTry(): typeof TinhThanh;
+                export const EntityPlural: string;
+                export const EntitySingular: string;
+                export const Id: string;
+                export const TenTinhThanh: string;
+            }
+            namespace XaPhuong {
+                export function asKey(): typeof XaPhuong;
+                export function asTry(): typeof XaPhuong;
+                export const EntityPlural: string;
+                export const EntitySingular: string;
+                export const Id: string;
+                export const QuanHuyenId: string;
+                export const QuanHuyenTenQuanHuyen: string;
+                export const TenXaPhuong: string;
+            }
         }
     }
     export declare namespace Forms {
@@ -528,6 +559,7 @@ const Texts: typeof texts = proxyTexts({}, '', {
             MaGiamGia: {},
             NhaCungCap: {},
             QuaTang: {},
+            QuanHuyen: {},
             Review: {},
             SanPham: {},
             SanPhamBienThe: {},
@@ -539,7 +571,9 @@ const Texts: typeof texts = proxyTexts({}, '', {
             SanPhamQuaTang: {},
             Shippers: {},
             ThuongHieu: {},
-            TinTuc: {}
+            TinTuc: {},
+            TinhThanh: {},
+            XaPhuong: {}
         }
     },
     Forms: {
