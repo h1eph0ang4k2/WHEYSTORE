@@ -1,8 +1,8 @@
-﻿import { initFormType, PrefixedContext, ServiceLookupEditor, StringEditor } from "@serenity-is/corelib";
+﻿import { initFormType, IntegerEditor, PrefixedContext, StringEditor } from "@serenity-is/corelib";
 
 export interface QuanHuyenForm {
     TenQuanHuyen: StringEditor;
-    TinhThanhId: ServiceLookupEditor;
+    TinhThanhId: IntegerEditor;
 }
 
 export class QuanHuyenForm extends PrefixedContext {
@@ -16,7 +16,7 @@ export class QuanHuyenForm extends PrefixedContext {
             QuanHuyenForm.init = true;
 
             var w0 = StringEditor;
-            var w1 = ServiceLookupEditor;
+            var w1 = IntegerEditor;
 
             initFormType(QuanHuyenForm, [
                 'TenQuanHuyen', w0,

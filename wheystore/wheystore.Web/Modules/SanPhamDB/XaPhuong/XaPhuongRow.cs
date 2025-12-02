@@ -1,3 +1,5 @@
+using static wheystore.MVC.ESM.Modules.SanPhamDB;
+
 namespace wheystore.SanPhamDB;
 
 [ConnectionKey("Default"), Module("SanPhamDB"), TableName("XaPhuong")]
@@ -16,18 +18,28 @@ public sealed class XaPhuongRow : Row<XaPhuongRow.RowFields>, IIdRow, INameRow
     [DisplayName("Ten Xa Phuong"), Size(200), NotNull, QuickSearch, NameProperty]
     public string TenXaPhuong { get => fields.TenXaPhuong[this]; set => fields.TenXaPhuong[this] = value; }
 
-    [DisplayName("Quan Huyen"), Column("QuanHuyenID"), NotNull, ForeignKey(typeof(QuanHuyenRow)), LeftJoin(jQuanHuyen)]
-    [TextualField(nameof(QuanHuyenTenQuanHuyen)), ServiceLookupEditor(typeof(QuanHuyenRow))]
-    public int? QuanHuyenId { get => fields.QuanHuyenId[this]; set => fields.QuanHuyenId[this] = value; }
+    [DisplayName("QuanHuyen"),
+     Column("QuanHuyenID"),
+     ForeignKey(typeof(QuanHuyenRow)), LeftJoin(jQuanHuyen),
+     LookupInclude]
+    public int? QuanHuyenId
+    {
+        get => fields.QuanHuyenId[this];
+        set => fields.QuanHuyenId[this] = value;
+    }
 
-    [DisplayName("Quan Huyen Ten Quan Huyen"), Origin(jQuanHuyen, nameof(QuanHuyenRow.TenQuanHuyen))]
-    public string QuanHuyenTenQuanHuyen { get => fields.QuanHuyenTenQuanHuyen[this]; set => fields.QuanHuyenTenQuanHuyen[this] = value; }
+    [DisplayName("Tên QuanHuyen "), Origin(jQuanHuyen, nameof(QuanHuyenRow.TenQuanHuyen))]
+    public string QuanHuyenTen
+    {
+        get => fields.QuanHuyenTen[this];
+        set => fields.QuanHuyenTen[this] = value;
+    }
 
     public class RowFields : RowFieldsBase
     {
         public Int32Field Id;
         public StringField TenXaPhuong;
         public Int32Field QuanHuyenId;
-        public StringField QuanHuyenTenQuanHuyen;
-    }
+        public StringField QuanHuyenTen;
+}
 }

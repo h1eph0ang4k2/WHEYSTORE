@@ -4,7 +4,7 @@ export interface XaPhuongRow {
     Id?: number;
     TenXaPhuong?: string;
     QuanHuyenId?: number;
-    QuanHuyenTenQuanHuyen?: string;
+    QuanHuyenTen?: string;
 }
 
 export abstract class XaPhuongRow {

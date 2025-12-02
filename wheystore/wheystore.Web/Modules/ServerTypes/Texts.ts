@@ -240,7 +240,7 @@ namespace texts {
                 export const Id: string;
                 export const TenQuanHuyen: string;
                 export const TinhThanhId: string;
-                export const TinhThanhTenTinhThanh: string;
+                export const TinhThanhTen: string;
             }
             namespace Review {
                 export function asKey(): typeof Review;
@@ -438,7 +438,7 @@ namespace texts {
                 export const EntitySingular: string;
                 export const Id: string;
                 export const QuanHuyenId: string;
-                export const QuanHuyenTenQuanHuyen: string;
+                export const QuanHuyenTen: string;
                 export const TenXaPhuong: string;
             }
         }

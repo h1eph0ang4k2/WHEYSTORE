@@ -4,7 +4,7 @@ export interface QuanHuyenRow {
     Id?: number;
     TenQuanHuyen?: string;
     TinhThanhId?: number;
-    TinhThanhTenTinhThanh?: string;
+    TinhThanhTen?: string;
 }
 
 export abstract class QuanHuyenRow {

@@ -16,19 +16,28 @@ public sealed class QuanHuyenRow : Row<QuanHuyenRow.RowFields>, IIdRow, INameRow
     [DisplayName("Ten Quan Huyen"), Size(200), NotNull, QuickSearch, NameProperty]
     public string TenQuanHuyen { get => fields.TenQuanHuyen[this]; set => fields.TenQuanHuyen[this] = value; }
 
-    [DisplayName("Tinh Thanh"), NotNull, ForeignKey(typeof(SanPhamDB.TinhThanhRow)), LeftJoin(jTinhThanh)]
-    [TextualField(nameof(TinhThanhTenTinhThanh)), ServiceLookupEditor(typeof(SanPhamDB.TinhThanhRow))]
-    public int? TinhThanhId { get => fields.TinhThanhId[this]; set => fields.TinhThanhId[this] = value; }
+    [DisplayName("Tỉnh/Thành"),
+     Column("TinhThanhID"),
+     ForeignKey(typeof(TinhThanhRow)), LeftJoin(jTinhThanh),
+     LookupInclude] 
+    public int? TinhThanhId
+    {
+        get => fields.TinhThanhId[this];
+        set => fields.TinhThanhId[this] = value;
+    }
 
-    [DisplayName("Tinh Thanh Ten Tinh Thanh"), Origin(jTinhThanh, nameof(SanPhamDB.TinhThanhRow.TenTinhThanh))]
-    public string TinhThanhTenTinhThanh { get => fields.TinhThanhTenTinhThanh[this]; set => fields.TinhThanhTenTinhThanh[this] = value; }
+    [DisplayName("Tên Tỉnh/Thành"), Origin(jTinhThanh, nameof(TinhThanhRow.TenTinhThanh))]
+    public string TinhThanhTen
+    {
+        get => fields.TinhThanhTen[this];
+        set => fields.TinhThanhTen[this] = value;
+    }
 
     public class RowFields : RowFieldsBase
     {
         public Int32Field Id;
         public StringField TenQuanHuyen;
         public Int32Field TinhThanhId;
-
-        public StringField TinhThanhTenTinhThanh;
+        public StringField TinhThanhTen;
     }
 }

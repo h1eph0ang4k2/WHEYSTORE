@@ -12,10 +12,20 @@ public class KhachHangForm
     [LookupEditor(typeof(TinhThanhRow))]
     public int? TinhThanhId { get; set; }
 
-    [LookupEditor(typeof(QuanHuyenRow))]
+   
+    [LookupEditor(
+        typeof(QuanHuyenRow),
+        CascadeFrom = "TinhThanhId",    
+        CascadeField = "TinhThanhId"   
+    )]
     public int? QuanHuyenId { get; set; }
 
-    [LookupEditor(typeof(XaPhuongRow))]
+    
+    [LookupEditor(
+        typeof(XaPhuongRow),
+        CascadeFrom = "QuanHuyenId",
+        CascadeField = "QuanHuyenId"
+    )]
     public int? XaPhuongId { get; set; }
     public string MaBuuChinh { get; set; }
     public DateOnly NgaySinh { get; set; }
