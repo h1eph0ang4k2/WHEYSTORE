@@ -30,7 +30,7 @@ export class SanPhamGrid extends EntityGrid<SanPhamRow> {
             options: {
                 lookupKey: DanhMucSanPhamRow.lookupKey
             }
-           
+
         });
 
         // ---- Nhà cung cấp (Supplier) ----
@@ -43,7 +43,7 @@ export class SanPhamGrid extends EntityGrid<SanPhamRow> {
             }
         });
 
-      
+
         filters.push({
             field: fld.ThuongHieuId,
             title: "Thương hiệu",
@@ -83,4 +83,13 @@ export class SanPhamGrid extends EntityGrid<SanPhamRow> {
 
         return filters;
     }
+
+    public override getSlickOptions() {
+        const opt = super.getSlickOptions();
+        opt.editable = true;
+        opt.enableCellNavigation = true;
+        return opt;
+
+    }
 }
+   

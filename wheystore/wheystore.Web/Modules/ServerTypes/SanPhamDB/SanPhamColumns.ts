@@ -4,20 +4,20 @@ import { SanPhamRow } from "./SanPhamRow";
 
 export interface SanPhamColumns {
     MaSp: Column<SanPhamRow>;
+    HienThi: Column<SanPhamRow>;
     TenSp: Column<SanPhamRow>;
     GiaBan: Column<SanPhamRow>;
-    SoLuong: Column<SanPhamRow>;
-    MoTa: Column<SanPhamRow>;
-    AnhSp: Column<SanPhamRow>;
-    AnhSpCt: Column<SanPhamRow>;
-    GiamGia: Column<SanPhamRow>;
-    GiaKhuyenMai: Column<SanPhamRow>;
-    HienThi: Column<SanPhamRow>;
     DanhMucSanPham: Column<SanPhamRow>;
     TenNhaCungCap: Column<SanPhamRow>;
+    TenThuongHieu: Column<SanPhamRow>;
+    SoLuong: Column<SanPhamRow>;
+    MoTa: Column<SanPhamRow>;
+    GiamGia: Column<SanPhamRow>;
+    GiaKhuyenMai: Column<SanPhamRow>;
+    AnhSp: Column<SanPhamRow>;
+    AnhSpCt: Column<SanPhamRow>;
     CreatedAt: Column<SanPhamRow>;
     UpdatedAt: Column<SanPhamRow>;
-    TenThuongHieu: Column<SanPhamRow>;
 }
 
 export class SanPhamColumns extends ColumnsBase<SanPhamRow> {

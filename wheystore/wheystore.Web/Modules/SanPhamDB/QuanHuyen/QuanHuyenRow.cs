@@ -35,6 +35,7 @@ public sealed class QuanHuyenRow : Row<QuanHuyenRow.RowFields>, IIdRow, INameRow
 
     public class RowFields : RowFieldsBase
     {
+
         public Int32Field Id;
         public StringField TenQuanHuyen;
         public Int32Field TinhThanhId;

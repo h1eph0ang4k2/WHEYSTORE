@@ -16,7 +16,21 @@ public class KhachHangColumns
     [LookupEditor(typeof(TinhThanhRow)), QuickFilter, DisplayName("Tỉnh Thành")]
     public int? TinhThanhId { get; set; }
 
+    [LookupEditor(typeof(QuanHuyenRow),
+        CascadeFrom =  "TinhThanhId",
+        CascadeField = "TinhThanhId")]
+    [QuickFilter, DisplayName("Quan Huyen")]
+    public int? QuanHuyenId { get; set; }
+
+    [QuickFilter, LookupEditor(typeof(XaPhuongRow),
+        CascadeFrom = "QuanHuyenId",
+        CascadeField = "QuanHuyenId")]
+
+  
+    public int? XaPhuongId { get; set; }
+
     
+
 
     [DisplayName("Tỉnh Thành")]
     public string TinhThanhTen { get; set; }

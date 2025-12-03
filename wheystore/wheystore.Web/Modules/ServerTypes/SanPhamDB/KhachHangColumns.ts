@@ -10,6 +10,8 @@ export interface KhachHangColumns {
     Email: Column<KhachHangRow>;
     DiaChi: Column<KhachHangRow>;
     TinhThanhId: Column<KhachHangRow>;
+    QuanHuyenId: Column<KhachHangRow>;
+    XaPhuongId: Column<KhachHangRow>;
     TinhThanhTen: Column<KhachHangRow>;
     QuanHuyenTen: Column<KhachHangRow>;
     XaPhuongTen: Column<KhachHangRow>;

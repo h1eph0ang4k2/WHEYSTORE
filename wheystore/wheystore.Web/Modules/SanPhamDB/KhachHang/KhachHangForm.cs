@@ -17,8 +17,7 @@ public class KhachHangForm
     [LookupEditor(
         typeof(QuanHuyenRow),
         CascadeFrom = "TinhThanhId",    
-        CascadeField = "TinhThanhId"   
-    )]
+        CascadeField = "TinhThanhId")]
     public int? QuanHuyenId { get; set; }
 
     

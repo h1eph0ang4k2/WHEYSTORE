@@ -16,6 +16,7 @@ public sealed class TinhThanhRow : Row<TinhThanhRow.RowFields>, IIdRow, INameRow
 
     public class RowFields : RowFieldsBase
     {
+
         public Int32Field Id;
         public StringField TenTinhThanh;
 
