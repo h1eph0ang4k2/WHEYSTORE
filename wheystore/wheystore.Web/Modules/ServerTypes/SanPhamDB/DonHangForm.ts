@@ -1,16 +1,12 @@
-﻿import { BooleanEditor, DateEditor, DecimalEditor, initFormType, IntegerEditor, PrefixedContext, StringEditor } from "@serenity-is/corelib";
+﻿import { BooleanEditor, DateEditor, DecimalEditor, initFormType, LookupEditor, PrefixedContext, StringEditor } from "@serenity-is/corelib";
 
 export interface DonHangForm {
-    MaKhachHang: IntegerEditor;
+    MaKhachHang: LookupEditor;
     HoTenNguoiNhan: StringEditor;
     DiaChiNguoiNhan: StringEditor;
     SoDienThoaiNguoiNhan: StringEditor;
     EmailNguoiNhan: StringEditor;
-    TinhThanhNguoiNhan: StringEditor;
-    QuanHuyenNguoiNhan: StringEditor;
-    PhuongXaNguoiNhan: StringEditor;
-    MaBuuChinhNguoiNhan: StringEditor;
-    ShipperId: IntegerEditor;
+    ShipperId: LookupEditor;
     NgayDatHang: DateEditor;
     NgayGiaoHangDuKhien: DateEditor;
     NgayGiaoHangHoanThanh: DateEditor;
@@ -20,7 +16,6 @@ export interface DonHangForm {
     GiamGiaDonHang: DecimalEditor;
     PhuongThucThanhToan: StringEditor;
     DaThanhToan: BooleanEditor;
-    TrangThaiDonHang: IntegerEditor;
     GhiChu: StringEditor;
     CreatedAt: DateEditor;
     UpdatedAt: DateEditor;
@@ -36,7 +31,7 @@ export class DonHangForm extends PrefixedContext {
         if (!DonHangForm.init) {
             DonHangForm.init = true;
 
-            var w0 = IntegerEditor;
+            var w0 = LookupEditor;
             var w1 = StringEditor;
             var w2 = DateEditor;
             var w3 = DecimalEditor;
@@ -48,10 +43,6 @@ export class DonHangForm extends PrefixedContext {
                 'DiaChiNguoiNhan', w1,
                 'SoDienThoaiNguoiNhan', w1,
                 'EmailNguoiNhan', w1,
-                'TinhThanhNguoiNhan', w1,
-                'QuanHuyenNguoiNhan', w1,
-                'PhuongXaNguoiNhan', w1,
-                'MaBuuChinhNguoiNhan', w1,
                 'ShipperId', w0,
                 'NgayDatHang', w2,
                 'NgayGiaoHangDuKhien', w2,
@@ -62,7 +53,6 @@ export class DonHangForm extends PrefixedContext {
                 'GiamGiaDonHang', w3,
                 'PhuongThucThanhToan', w1,
                 'DaThanhToan', w4,
-                'TrangThaiDonHang', w0,
                 'GhiChu', w1,
                 'CreatedAt', w2,
                 'UpdatedAt', w2

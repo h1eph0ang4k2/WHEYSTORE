@@ -1,17 +1,27 @@
-﻿namespace wheystore.SanPhamDB;
+using Serenity.Demo.Northwind;
+
+namespace wheystore.SanPhamDB;
 
 [ConnectionKey("Default"), Module("SanPhamDB"), TableName("DonHang")]
 [DisplayName("Don Hang"), InstanceName("Don Hang")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
+[LookupScript]
 public sealed class DonHangRow : Row<DonHangRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Ma Dh"), Column("MaDH"), Identity, IdProperty]
     public int? MaDh { get => fields.MaDh[this]; set => fields.MaDh[this] = value; }
 
-    [DisplayName("Ma Khach Hang")]
-    public int? MaKhachHang { get => fields.MaKhachHang[this]; set => fields.MaKhachHang[this] = value; }
+    [DisplayName("Ma Khach Hang"), ForeignKey(typeof(KhachHangRow)), LeftJoin("kh")]
+    [LookupEditor(typeof(KhachHangRow))]
+    [LookupInclude]
+    public int? MaKhachHang
+    {
+        get => fields.MaKhachHang[this];
+        set => fields.MaKhachHang[this] = value;
+    }
+
 
     [DisplayName("Ho Ten Nguoi Nhan"), Size(150), NotNull, QuickSearch, NameProperty]
     public string HoTenNguoiNhan { get => fields.HoTenNguoiNhan[this]; set => fields.HoTenNguoiNhan[this] = value; }
@@ -25,20 +35,21 @@ public sealed class DonHangRow : Row<DonHangRow.RowFields>, IIdRow, INameRow
     [DisplayName("Email Nguoi Nhan"), Size(100)]
     public string EmailNguoiNhan { get => fields.EmailNguoiNhan[this]; set => fields.EmailNguoiNhan[this] = value; }
 
-    [DisplayName("Tinh Thanh Nguoi Nhan"), Size(100), NotNull]
-    public string TinhThanhNguoiNhan { get => fields.TinhThanhNguoiNhan[this]; set => fields.TinhThanhNguoiNhan[this] = value; }
+    [DisplayName("Shipper"), ForeignKey(typeof(ShippersRow)), LeftJoin("sh")]
+    [LookupEditor(typeof(ShippersRow))]
+    [LookupInclude] 
+    public int? ShipperId
+    {
+        get => fields.ShipperId[this];
+        set => fields.ShipperId[this] = value;
+    }
 
-    [DisplayName("Quan Huyen Nguoi Nhan"), Size(100), NotNull]
-    public string QuanHuyenNguoiNhan { get => fields.QuanHuyenNguoiNhan[this]; set => fields.QuanHuyenNguoiNhan[this] = value; }
-
-    [DisplayName("Phuong Xa Nguoi Nhan"), Size(100), NotNull]
-    public string PhuongXaNguoiNhan { get => fields.PhuongXaNguoiNhan[this]; set => fields.PhuongXaNguoiNhan[this] = value; }
-
-    [DisplayName("Ma Buu Chinh Nguoi Nhan"), Size(20)]
-    public string MaBuuChinhNguoiNhan { get => fields.MaBuuChinhNguoiNhan[this]; set => fields.MaBuuChinhNguoiNhan[this] = value; }
-
-    [DisplayName("Shipper Id")]
-    public int? ShipperId { get => fields.ShipperId[this]; set => fields.ShipperId[this] = value; }
+    [DisplayName("Shipper"), Expression("sh.TenCongTy")]
+    public string ShipperTen
+    {
+        get => fields.ShipperTen[this];
+        set => fields.ShipperTen[this] = value;
+    }
 
     [DisplayName("Ngay Dat Hang"), NotNull]
     public DateTime? NgayDatHang { get => fields.NgayDatHang[this]; set => fields.NgayDatHang[this] = value; }
@@ -67,8 +78,7 @@ public sealed class DonHangRow : Row<DonHangRow.RowFields>, IIdRow, INameRow
     [DisplayName("Da Thanh Toan"), NotNull]
     public bool? DaThanhToan { get => fields.DaThanhToan[this]; set => fields.DaThanhToan[this] = value; }
 
-    [DisplayName("Trang Thai Don Hang"), NotNull]
-    public short? TrangThaiDonHang { get => fields.TrangThaiDonHang[this]; set => fields.TrangThaiDonHang[this] = value; }
+ 
 
     [DisplayName("Ghi Chu"), Size(1000)]
     public string GhiChu { get => fields.GhiChu[this]; set => fields.GhiChu[this] = value; }
@@ -87,10 +97,7 @@ public sealed class DonHangRow : Row<DonHangRow.RowFields>, IIdRow, INameRow
         public StringField DiaChiNguoiNhan;
         public StringField SoDienThoaiNguoiNhan;
         public StringField EmailNguoiNhan;
-        public StringField TinhThanhNguoiNhan;
-        public StringField QuanHuyenNguoiNhan;
-        public StringField PhuongXaNguoiNhan;
-        public StringField MaBuuChinhNguoiNhan;
+        public StringField ShipperTen;
         public Int32Field ShipperId;
         public DateTimeField NgayDatHang;
         public DateTimeField NgayGiaoHangDuKhien;
@@ -101,7 +108,6 @@ public sealed class DonHangRow : Row<DonHangRow.RowFields>, IIdRow, INameRow
         public DecimalField GiamGiaDonHang;
         public StringField PhuongThucThanhToan;
         public BooleanField DaThanhToan;
-        public Int16Field TrangThaiDonHang;
         public StringField GhiChu;
         public DateTimeField CreatedAt;
         public DateTimeField UpdatedAt;

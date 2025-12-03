@@ -16,15 +16,19 @@ public sealed class KhachHangRow : Row<KhachHangRow.RowFields>, IIdRow, INameRow
     public int? UserId { get => fields.UserId[this]; set => fields.UserId[this] = value; }
 
     [DisplayName("Ho Ten"), Size(100), NotNull, QuickSearch, NameProperty]
+    [LookupInclude]
     public string HoTen { get => fields.HoTen[this]; set => fields.HoTen[this] = value; }
 
     [DisplayName("Dien Thoai"), Size(20)]
+    [LookupInclude]
     public string DienThoai { get => fields.DienThoai[this]; set => fields.DienThoai[this] = value; }
 
     [DisplayName("Email"), Size(100)]
+    [LookupInclude]
     public string Email { get => fields.Email[this]; set => fields.Email[this] = value; }
 
     [DisplayName("Dia Chi"), Size(255)]
+   
     public string DiaChi { get => fields.DiaChi[this]; set => fields.DiaChi[this] = value; }
 
     

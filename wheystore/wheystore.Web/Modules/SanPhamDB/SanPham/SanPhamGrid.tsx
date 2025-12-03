@@ -87,9 +87,10 @@ export class SanPhamGrid extends EntityGrid<SanPhamRow> {
     public override getSlickOptions() {
         const opt = super.getSlickOptions();
         opt.editable = true;
+        opt.autoEdit = true;
         opt.enableCellNavigation = true;
         return opt;
 
     }
 }
-   
+  

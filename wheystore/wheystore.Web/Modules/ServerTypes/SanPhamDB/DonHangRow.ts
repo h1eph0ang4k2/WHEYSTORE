@@ -1,4 +1,4 @@
-﻿import { fieldsProxy } from "@serenity-is/corelib";
+﻿import { fieldsProxy, getLookup, getLookupAsync } from "@serenity-is/corelib";
 
 export interface DonHangRow {
     MaDh?: number;
@@ -7,10 +7,7 @@ export interface DonHangRow {
     DiaChiNguoiNhan?: string;
     SoDienThoaiNguoiNhan?: string;
     EmailNguoiNhan?: string;
-    TinhThanhNguoiNhan?: string;
-    QuanHuyenNguoiNhan?: string;
-    PhuongXaNguoiNhan?: string;
-    MaBuuChinhNguoiNhan?: string;
+    ShipperTen?: string;
     ShipperId?: number;
     NgayDatHang?: string;
     NgayGiaoHangDuKhien?: string;
@@ -21,7 +18,6 @@ export interface DonHangRow {
     GiamGiaDonHang?: number;
     PhuongThucThanhToan?: string;
     DaThanhToan?: boolean;
-    TrangThaiDonHang?: number;
     GhiChu?: string;
     CreatedAt?: string;
     UpdatedAt?: string;
@@ -31,6 +27,12 @@ export abstract class DonHangRow {
     static readonly idProperty = 'MaDh';
     static readonly nameProperty = 'HoTenNguoiNhan';
     static readonly localTextPrefix = 'SanPhamDB.DonHang';
+    static readonly lookupKey = 'SanPhamDB.DonHang';
+
+    /** @deprecated use getLookupAsync instead */
+    static getLookup() { return getLookup<DonHangRow>('SanPhamDB.DonHang') }
+    static async getLookupAsync() { return getLookupAsync<DonHangRow>('SanPhamDB.DonHang') }
+
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';
     static readonly readPermission = 'Administration:General';

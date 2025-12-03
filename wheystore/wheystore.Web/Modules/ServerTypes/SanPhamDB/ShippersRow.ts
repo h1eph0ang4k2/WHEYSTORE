@@ -1,4 +1,4 @@
-﻿import { fieldsProxy } from "@serenity-is/corelib";
+﻿import { fieldsProxy, getLookup, getLookupAsync } from "@serenity-is/corelib";
 
 export interface ShippersRow {
     MaShipper?: number;
@@ -12,6 +12,12 @@ export abstract class ShippersRow {
     static readonly idProperty = 'MaShipper';
     static readonly nameProperty = 'MaShipperCode';
     static readonly localTextPrefix = 'SanPhamDB.Shippers';
+    static readonly lookupKey = 'SanPhamDB.Shippers';
+
+    /** @deprecated use getLookupAsync instead */
+    static getLookup() { return getLookup<ShippersRow>('SanPhamDB.Shippers') }
+    static async getLookupAsync() { return getLookupAsync<ShippersRow>('SanPhamDB.Shippers') }
+
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';
     static readonly readPermission = 'Administration:General';

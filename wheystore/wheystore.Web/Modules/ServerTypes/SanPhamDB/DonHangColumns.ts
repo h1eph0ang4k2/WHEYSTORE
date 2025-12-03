@@ -3,16 +3,11 @@ import { Column } from "@serenity-is/sleekgrid";
 import { DonHangRow } from "./DonHangRow";
 
 export interface DonHangColumns {
-    MaDh: Column<DonHangRow>;
     MaKhachHang: Column<DonHangRow>;
     HoTenNguoiNhan: Column<DonHangRow>;
     DiaChiNguoiNhan: Column<DonHangRow>;
     SoDienThoaiNguoiNhan: Column<DonHangRow>;
     EmailNguoiNhan: Column<DonHangRow>;
-    TinhThanhNguoiNhan: Column<DonHangRow>;
-    QuanHuyenNguoiNhan: Column<DonHangRow>;
-    PhuongXaNguoiNhan: Column<DonHangRow>;
-    MaBuuChinhNguoiNhan: Column<DonHangRow>;
     ShipperId: Column<DonHangRow>;
     NgayDatHang: Column<DonHangRow>;
     NgayGiaoHangDuKhien: Column<DonHangRow>;
@@ -23,7 +18,6 @@ export interface DonHangColumns {
     GiamGiaDonHang: Column<DonHangRow>;
     PhuongThucThanhToan: Column<DonHangRow>;
     DaThanhToan: Column<DonHangRow>;
-    TrangThaiDonHang: Column<DonHangRow>;
     GhiChu: Column<DonHangRow>;
     CreatedAt: Column<DonHangRow>;
     UpdatedAt: Column<DonHangRow>;

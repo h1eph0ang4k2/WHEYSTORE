@@ -1,10 +1,11 @@
-﻿namespace wheystore.SanPhamDB;
+namespace wheystore.SanPhamDB;
 
 [ConnectionKey("Default"), Module("SanPhamDB"), TableName("Shipper")]
 [DisplayName("Shippers"), InstanceName("Shippers")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
+[LookupScript]
 public sealed class ShippersRow : Row<ShippersRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Ma Shipper"), Identity, IdProperty]

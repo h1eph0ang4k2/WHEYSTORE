@@ -132,7 +132,6 @@ namespace texts {
                 export const GhiChu: string;
                 export const GiamGiaDonHang: string;
                 export const HoTenNguoiNhan: string;
-                export const MaBuuChinhNguoiNhan: string;
                 export const MaDh: string;
                 export const MaKhachHang: string;
                 export const NgayDatHang: string;
@@ -140,14 +139,11 @@ namespace texts {
                 export const NgayGiaoHangHoanThanh: string;
                 export const PhiVanChuyen: string;
                 export const PhuongThucThanhToan: string;
-                export const PhuongXaNguoiNhan: string;
-                export const QuanHuyenNguoiNhan: string;
                 export const ShipperId: string;
+                export const ShipperTen: string;
                 export const SoDienThoaiNguoiNhan: string;
-                export const TinhThanhNguoiNhan: string;
                 export const TongThanhToan: string;
                 export const TongTienHang: string;
-                export const TrangThaiDonHang: string;
                 export const UpdatedAt: string;
             }
             namespace GioHang {
